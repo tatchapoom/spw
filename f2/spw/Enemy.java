@@ -3,7 +3,7 @@ package f2.spw;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
-
+import java.util.Random;
 public class Enemy extends Sprite{
 	public static final int Y_TO_FADE = 400;
 	public static final int Y_TO_DIE = 600;
@@ -24,10 +24,27 @@ public class Enemy extends Sprite{
 			g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 
 					(float)(Y_TO_DIE - y)/(Y_TO_DIE - Y_TO_FADE)));
 		}
-		g.setColor(Color.RED);
+
+		if(n == 1)
+			g.setColor(Color.RED);
+		if(n == 2)
+			g.setColor(Color.YELLOW);
+		if(n == 3)
+			g.setColor(Color.GREEN);
+		if(n == 4)
+			g.setColor(Color.PINK);
+		if(n == 5)
+			g.setColor(Color.ORANGE);
+		if(n == 6)
+			g.setColor(Color.WHITE);
+		if(n == 7)
+			g.setColor(Color.BLUE);
+
 		g.fillRect(x, y, width, height);
 		
 	}
+	Random rand = new Random();
+	int  n = rand.nextInt(7) + 1;
 
 	public void proceed(){
 		y += step;
@@ -39,4 +56,6 @@ public class Enemy extends Sprite{
 	public boolean isAlive(){
 		return alive;
 	}
+
+
 }
