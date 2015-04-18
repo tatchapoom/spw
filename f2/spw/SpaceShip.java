@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class SpaceShip extends Sprite{
 
-	int step = 8;
+	int step = 10;
 	
 	public SpaceShip(int x, int y, int width, int height) {
 		super(x, y, width, height);
