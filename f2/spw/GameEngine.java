@@ -7,7 +7,7 @@ import java.awt.event.KeyListener;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Iterator;
-
+import java.util.TimerTask;
 import javax.swing.Timer;
 
 
@@ -18,7 +18,7 @@ public class GameEngine implements KeyListener, GameReporter{
 	private SpaceShip v;	
 	
 	private Timer timer;
-	
+	private int life = 10;
 	private long score = 0;
 	private double difficulty = 0.2;
 	
@@ -73,14 +73,20 @@ public class GameEngine implements KeyListener, GameReporter{
 		for(Enemy e : enemies){
 			er = e.getRectangle();
 			if(er.intersects(vr)){
+				System.out.print(" 1 "); 
+				life--;
 				die();
 				return;
 			}
+			else System.out.print(" 9 "); 
 		}
 	}
 	
 	public void die(){
-		timer.stop();
+		System.out.print(" 2 "); 
+		if(life == 0){
+			timer.stop();
+		}
 	}
 	
 	void controlVehicle(KeyEvent e) {
@@ -98,6 +104,7 @@ public class GameEngine implements KeyListener, GameReporter{
 	}
 
 	public long getScore(){
+		System.out.print(" 4 "); 
 		return score;
 	}
 	

@@ -49,6 +49,7 @@ public class Enemy extends Sprite{
 	public void proceed(){
 		y += step;
 		if(y > Y_TO_DIE){
+			System.out.print(" 3 "); 
 			alive = false;
 		}
 	}
