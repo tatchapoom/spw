@@ -18,7 +18,7 @@ public class GameEngine implements KeyListener, GameReporter{
 	private SpaceShip v;	
 	
 	private Timer timer;
-	private int life = 10;
+	private int life = 9;
 	private long score = 0;
 	private double difficulty = 0.2;
 	
@@ -122,5 +122,9 @@ public class GameEngine implements KeyListener, GameReporter{
 	@Override
 	public void keyTyped(KeyEvent e) {
 		//do nothing		
+	}
+        public long lifeScore(){
+		System.out.print(" 7 "); 
+		return life;
 	}
 }
