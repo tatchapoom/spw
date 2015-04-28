@@ -1,16 +1,20 @@
 package f2.spw;
 
 import java.awt.BorderLayout;
+import javax.swing.ImageIcon;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Main {
 	public static void main(String[] args){
 		JFrame frame = new JFrame("Space War");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(400, 650);
+                //setContentPane(new JLabel(new ImageIcon("C:\\Users\\TSD\\Documents\\NetBeansProjects\\F2\\src\\f2\\lol.")));
 		frame.getContentPane().setLayout(new BorderLayout());
 		SpaceShip v = new SpaceShip(200, 570, 20, 20);
+                
 		//Random rand = new Random();
 		//int  n = rand.nextInt(7) + 1;
 		//if(n == 1)
