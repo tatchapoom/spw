@@ -14,7 +14,8 @@ import javax.swing.Timer;
 public class GameEngine implements KeyListener, GameReporter{
 	GamePanel gp;
 		
-	private ArrayList<Enemy> enemies = new ArrayList<Enemy>();	
+	private ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+        private ArrayList<Weapon> weapon = new ArrayList<Weapon>();
 	private SpaceShip v;	
 	
 	private Timer timer;
@@ -33,6 +34,7 @@ public class GameEngine implements KeyListener, GameReporter{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				process();
+                                createWeapon();
 			}
 		});
 		timer.setRepeats(true);
@@ -66,6 +68,17 @@ public class GameEngine implements KeyListener, GameReporter{
 			}
 		}
 		
+                Iterator<Weapon> weapon_iter = weapon.iterator();
+		while(weapon_iter.hasNext()){
+			Weapon b = weapon_iter.next();
+			b.proceed();
+			if(!b.isAlive()){
+				weapon_iter.remove();
+				gp.sprites.remove(b);
+				weapon.remove(b);
+			}
+		}
+
 		gp.updateGameUI(this);
 		
 		Rectangle2D.Double vr = v.getRectangle();
@@ -126,5 +139,10 @@ public class GameEngine implements KeyListener, GameReporter{
         public long lifeScore(){
 		System.out.print(" 7 "); 
 		return life;
+	}
+        private void createWeapon(){
+		Weapon h1 = new Weapon( this.v.x + (this.v.width/2) - 1,this.v.y);
+                gp.sprites.add(h1);
+		weapon.add(h1);
 	}
 }

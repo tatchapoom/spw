@@ -20,7 +20,7 @@ public class GamePanel extends JPanel {
 		bi = new BufferedImage(400, 600, BufferedImage.TYPE_INT_ARGB);
 		big = (Graphics2D) bi.getGraphics();
 		//big.setBackground(Color.WHITE);
-                imgbg = Toolkit.getDefaultToolkit().getImage("C:/Users/TSD/Documents/GitHub/spw/f2/spw/img/bg.jpg");
+                imgbg = Toolkit.getDefaultToolkit().getImage("C:\\Users\\TSD\\Documents\\GitHub\\spw\\f2\\spw\\img\\bg.jpg");
 		big.drawImage(imgbg, 0, 0, 400, 600,null);
 		
 	}
@@ -31,6 +31,7 @@ public class GamePanel extends JPanel {
 		big.setColor(Color.RED);		
 		big.drawString(String.format("Score = %08d", reporter.getScore()), 280, 20);
                 big.drawString(String.format("Life Point = %d", reporter.lifeScore()/3), 200, 20);
+                big.drawString(String.format("Evasion = %d", reporter.getScore()/100), 120, 20);
                 
                 
 		for(Sprite s : sprites){
