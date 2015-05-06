@@ -20,6 +20,7 @@ public class GameEngine implements KeyListener, GameReporter{
 	
 	private Timer timer;
 	private int life = 9;
+        private int count = 0;
 	private long score = 0;
 	private double difficulty = 0.2;
 	
@@ -38,6 +39,7 @@ public class GameEngine implements KeyListener, GameReporter{
 			}
 		});
 		timer.setRepeats(true);
+                
 		
 	}
 	
@@ -65,6 +67,12 @@ public class GameEngine implements KeyListener, GameReporter{
 				e_iter.remove();
 				gp.sprites.remove(e);
 				score += 100;
+                                count++;
+                                if( count%100 == 0){
+                                    life++;
+                                    life++;
+                                    life++;
+                                 }
 			}
 		}
 		

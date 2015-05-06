@@ -32,7 +32,7 @@ public class GamePanel extends JPanel {
 		big.drawString(String.format("Score = %08d", reporter.getScore()), 280, 20);
                 big.drawString(String.format("Life Point = %d", reporter.lifeScore()/3), 200, 20);
                 big.drawString(String.format("Evasion = %d", reporter.getScore()/100), 120, 20);
-                
+                //if((reporter.getScore()/100)% 100) == 0)
                 
 		for(Sprite s : sprites){
 			s.draw(big);
